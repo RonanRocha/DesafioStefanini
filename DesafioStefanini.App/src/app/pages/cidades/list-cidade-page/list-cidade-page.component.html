@@ -1,0 +1,55 @@
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h1>Lista de Cidades</h1>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <a [routerLink]="['/cidades/create']" class="btn btn-success">Adicionar</a>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Sigla</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a [routerLink]="['/cidades/', 1, 'show']" class="btn btn-primary me-md-2"
+                                type="button">Visualizar</a>
+                            <a [routerLink]="['/cidades/', 1, 'edit']" class="btn btn-warning me-md-2"
+                                type="button">Editar</a>
+                            <button class="btn btn-danger" type="button">Remover</button>
+                        </div>
+                    </td>
+                </tr>
+
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                            <a [routerLink]="['/cidades/', 2, 'show']" class="btn btn-primary me-md-2"
+                                type="button">Visualizar</a>
+                            <a [routerLink]="['/cidades/', 2, 'edit']" class="btn btn-warning me-md-2"
+                                type="button">Editar</a>
+                            <button class="btn btn-danger" type="button">Remover</button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

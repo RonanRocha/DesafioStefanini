@@ -7,12 +7,14 @@ using DesafioStefanini.Domain.Filters;
 using DesafioStefanini.Domain.Repositories;
 using FluentValidation;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DesafioStefanini.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("CorsPolicy")]
     public class PessoaController : ControllerBase
     {
 

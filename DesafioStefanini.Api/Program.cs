@@ -3,6 +3,7 @@ using DesafioStefanini.Api.Config;
 using DesafioStefanini.Api.Services;
 using DesafioStefanini.Data.Contexts;
 using DesafioStefanini.IoC.ServiceContainer;
+using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -35,6 +36,8 @@ builder.Services.AddSingleton<IUriService>(o =>
 });
 
 
+builder.Services.AddCors( options => options.AddPolicy("CorsPolicy", c => c.WithOrigins("*")));
+
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -48,7 +51,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseCors();
+app.UseCors("CorsPolicy");
 app.UseAuthorization();
 
 app.MapControllers();
