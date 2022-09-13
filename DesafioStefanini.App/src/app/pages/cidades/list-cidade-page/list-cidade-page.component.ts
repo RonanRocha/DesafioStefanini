@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Cidade } from 'src/app/models/cidade.model';
 import { CidadeService } from 'src/app/services/cidade.service';
 
 @Component({
@@ -9,15 +10,32 @@ import { CidadeService } from 'src/app/services/cidade.service';
 })
 export class ListCidadePageComponent implements OnInit {
 
-  public data!: Observable<any>;
+  public cidades: Cidade[] = [];
 
   constructor(private cidadeService: CidadeService) { }
 
   ngOnInit(): void {
+    this.Load();
+  }
 
+  Load() {
     this.cidadeService.getCities().subscribe((data) => {
-      this.data = data;
+      this.cidades = data.data;
     });
+  }
+
+
+  Remover(id: number) {
+
+    if (confirm("Deseja realmente excluir o registro")) {
+
+      this.cidadeService.removeCity(id).subscribe((data) => {
+        const isSuccess = data as any;
+        if (isSuccess.succeeded) {
+          this.Load()
+        }
+      });
+    }
   }
 
 }

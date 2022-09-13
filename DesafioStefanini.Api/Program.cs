@@ -36,7 +36,7 @@ builder.Services.AddSingleton<IUriService>(o =>
 });
 
 
-builder.Services.AddCors( options => options.AddPolicy("CorsPolicy", c => c.WithOrigins("*")));
+builder.Services.AddCors( options => options.AddPolicy("CorsPolicy", c => c.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()));
 
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);

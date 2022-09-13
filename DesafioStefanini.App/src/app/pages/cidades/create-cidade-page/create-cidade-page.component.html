@@ -1,17 +1,24 @@
 <div class="container">
     <div class="row mt-4">
         <div class="col-md-4">
-            <div class="mb-3">
-                <label for="Name" class="form-label">Nome da Cidade</label>
-                <input type="text" class="form-control" id="Name">
-            </div>
-            <div class="mb-3">
-                <label for="Sigla" class="form-label">Sigla da Cidade</label>
-                <input type="text" class="form-control" id="Sigla">
-            </div>
-            <div class="mb-3">
-                <button class="btn btn-success">Cadastrar</button>
-            </div>
+            <h1>Cadastro de Cidades</h1>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <form [formGroup]="form">
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Nome da Cidade</label>
+                    <input type="text" class="form-control" formControlName="nome" id="Nome">
+                </div>
+                <div class="mb-3">
+                    <label for="Sigla" class="form-label">Sigla da Cidade</label>
+                    <input type="text" class="form-control" formControlName="uf" id="Sigla">
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success" (click)="Salvar()" [disabled]="!form.valid">Cadastrar</button>
+                </div>
+            </form>
 
             <div class="mb-3">
                 <a [routerLink]="['/cidades']">Lista</a>

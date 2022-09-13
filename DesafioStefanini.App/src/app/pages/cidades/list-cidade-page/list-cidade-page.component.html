@@ -20,32 +20,17 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
+                <tr *ngFor='let cidade of cidades'>
+                    <th scope="row">{{cidade.id }}</th>
+                    <td>{{cidade.nome}}</td>
+                    <td>{{cidade.uf}}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a [routerLink]="['/cidades/', 1, 'show']" class="btn btn-primary me-md-2"
+                            <a [routerLink]="['/cidades/',cidade.id, 'show']" class="btn btn-primary me-md-2"
                                 type="button">Visualizar</a>
-                            <a [routerLink]="['/cidades/', 1, 'edit']" class="btn btn-warning me-md-2"
+                            <a [routerLink]="['/cidades/', cidade.id, 'edit']" class="btn btn-warning me-md-2"
                                 type="button">Editar</a>
-                            <button class="btn btn-danger" type="button">Remover</button>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a [routerLink]="['/cidades/', 2, 'show']" class="btn btn-primary me-md-2"
-                                type="button">Visualizar</a>
-                            <a [routerLink]="['/cidades/', 2, 'edit']" class="btn btn-warning me-md-2"
-                                type="button">Editar</a>
-                            <button class="btn btn-danger" type="button">Remover</button>
+                            <button class="btn btn-danger" (click)="Remover(cidade.id)" type="button">Remover</button>
                         </div>
                     </td>
                 </tr>

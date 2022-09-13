@@ -67,6 +67,10 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "DesafioStefanini.App:build",
+            "proxyConfig": "./proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "DesafioStefanini.App:build:production"
@@ -102,6 +106,9 @@
           }
         }
       }
+    },
+    "cli": {
+      "analytics": false
     }
   },
   "cli": {
