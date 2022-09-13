@@ -1,0 +1,26 @@
+version: "3"
+services:
+  api:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_URLS=http://+:5000
+      - CONNECTION_STRING=Server=db;Database=DesafioStefanini;User Id=sa;Password=Stef@nini1234
+      - ASPNETCORE_ENVIRONMENT=Development
+  db:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./data/db:/var/lib/mssqlserver/data
+    environment:
+      - SA_PASSWORD=Stef@nini1234
+      - ACCEPT_EULA=Y
+  app:
+    image: nginx:alpine
+    build: ./DesafioStefanini.App/
+    ports:
+      - "8080:80"
