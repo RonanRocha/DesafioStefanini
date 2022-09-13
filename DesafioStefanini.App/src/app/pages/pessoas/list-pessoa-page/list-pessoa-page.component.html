@@ -22,49 +22,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>65485846548</td>
-                    <td>25</td>
-                    <td>Taboão</td>
+                <tr *ngFor='let pessoa of pessoas'>
+                    <th scope="row">{{pessoa.id}}</th>
+                    <td>{{pessoa.nome}}</td>
+                    <td>{{pessoa.cpf}}</td>
+                    <td>{{pessoa.idade}}</td>
+                    <td>{{pessoa.cidade.nome}}</td>
                     <td>
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary me-md-2" type="button">Visualizar</button>
-                            <button class="btn btn-warning me-md-2" type="button">Editar</button>
-                            <button class="btn btn-danger" type="button">Remover</button>
+                            <a [routerLink]="['/pessoas/',pessoa.id, 'show']" class="btn btn-primary me-md-2"
+                                type="button">Visualizar</a>
+                            <a [routerLink]="['/pessoas/',pessoa.id, 'edit']" class="btn btn-warning me-md-2"
+                                type="button">Editar</a>
+                            <a class="btn btn-danger" (click)="Remover(pessoa.id)" type="button">Remover</a>
                         </div>
                     </td>
                 </tr>
 
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>65485846548</td>
-                    <td>25</td>
-                    <td>Taboão</td>
-                    <td>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary me-md-2" type="button">Visualizar</button>
-                            <button class="btn btn-warning me-md-2" type="button">Editar</button>
-                            <button class="btn btn-danger" type="button">Remover</button>
-                        </div>
-                    </td>
-                </tr>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>65485846548</td>
-                    <td>25</td>
-                    <td>Taboão</td>
-                    <td>
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button class="btn btn-primary me-md-2" type="button">Visualizar</button>
-                            <button class="btn btn-warning me-md-2" type="button">Editar</button>
-                            <button class="btn btn-danger" type="button">Remover</button>
-                        </div>
-                    </td>
-                </tr>
             </tbody>
         </table>
     </div>

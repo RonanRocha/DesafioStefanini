@@ -1,1 +1,38 @@
-<p>update-pessoa-page works!</p>
+<div class="container">
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <h1>Atualizar Pessoas</h1>
+        </div>
+    </div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <form [formGroup]="form">
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Nome</label>
+                    <input type="text" class="form-control" formControlName="nome" id="Nome">
+                </div>
+                <div class="mb-3">
+                    <label for="Sigla" class="form-label">Cpf</label>
+                    <input type="text" class="form-control" formControlName="cpf" id="Sigla">
+                </div>
+                <div class="mb-3">
+                    <label for="Sigla" class="form-label">Idade</label>
+                    <input type="text" class="form-control" formControlName="idade" id="Sigla">
+                </div>
+                <div class="mb-3">
+                    <label for="Sigla" class="form-label">Cidade</label>
+                    <select class="form-control" formControlName="id_cidade">
+                        <option *ngFor="let cidade of cidades" [ngValue]="cidade.id"> {{cidade.nome}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <button class="btn btn-success" (click)="Atualizar()" [disabled]="!form.valid">Cadastrar</button>
+                </div>
+            </form>
+
+            <div class="mb-3">
+                <a [routerLink]="['/pessoas']">Lista</a>
+            </div>
+        </div>
+    </div>
+</div>
